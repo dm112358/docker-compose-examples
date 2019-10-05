@@ -1,0 +1,37 @@
+version: "3.1"
+
+services:
+  adminer-8080:
+    image: adminer
+    restart: always
+    ports:
+      - 8080:8080
+
+  postgres-5432:
+    image: postgres
+    restart: always
+    ports:
+      - 5432:5432
+    environment:
+      POSTGRES_PASSWORD: 123456
+    volumes:
+      - ../docker-4-dev-data/postgres-5432-data:/var/lib/postgresql/data
+
+  mysql-5-7-24-3306:
+    image: mysql:5.7.24
+    command: --default-authentication-plugin=mysql_native_password
+    restart: always
+    ports:
+      - 3306:3306
+    environment:
+      MYSQL_ROOT_PASSWORD: 123456
+    volumes:
+      - ../docker-4-dev-data/mysql-5-7-24-3306-data:/var/lib/mysql
+
+  redis-6379:
+    image: redis
+    restart: always
+    ports:
+      - 6379:6379
+    volumes:
+      - ../docker-4-dev-data/redis-6379-data:/data
