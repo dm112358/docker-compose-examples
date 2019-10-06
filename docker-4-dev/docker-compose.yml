@@ -15,7 +15,7 @@ services:
     environment:
       POSTGRES_PASSWORD: 123456
     volumes:
-      - ../docker-4-dev-data/postgres-5432-data:/var/lib/postgresql/data
+      - ../../docker-4-dev-data/postgres-5432-data:/var/lib/postgresql/data
 
   mysql-5-7-24-3306:
     image: mysql:5.7.24
@@ -26,7 +26,7 @@ services:
     environment:
       MYSQL_ROOT_PASSWORD: 123456
     volumes:
-      - ../docker-4-dev-data/mysql-5-7-24-3306-data:/var/lib/mysql
+      - ../../docker-4-dev-data/mysql-5-7-24-3306-data:/var/lib/mysql
 
   redis-6379:
     image: redis
@@ -34,4 +34,4 @@ services:
     ports:
       - 6379:6379
     volumes:
-      - ../docker-4-dev-data/redis-6379-data:/data
+      - ../../docker-4-dev-data/redis-6379-data:/data
