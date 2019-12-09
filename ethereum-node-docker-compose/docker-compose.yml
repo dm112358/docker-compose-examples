@@ -1,0 +1,13 @@
+version: "3.1"
+
+services:
+  ethereum-node:
+    container_name: ethereum-node-docker-compose
+    image: ethereum/client-go:latest
+    command: --rpc --rpcaddr=0.0.0.0
+    restart: always
+    ports:
+      - 8545:8545
+      - 30303:30303
+    volumes:
+      - /mnt/data-disk-1/ethereum:/root
