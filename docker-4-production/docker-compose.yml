@@ -1,0 +1,22 @@
+version: "3.1"
+
+services:
+  postgres-5433:
+    container_name: postgres-{project-name}-production-5433
+    image: postgres
+    restart: always
+    ports:
+      - 127.0.0.1:5433:5432
+    environment:
+      POSTGRES_PASSWORD: 123456
+    volumes:
+      - /data_disk_1/data/{project-name}-production-data/postgresql-data:/var/lib/postgresql/data
+
+  redis-6380:
+    container_name: redis-{project-name}-production-6380
+    image: redis
+    restart: always
+    ports:
+      - 127.0.0.1:6380:6379
+    volumes:
+      - /data_disk_1/data/{project-name}-production-data/redis-data:/data
